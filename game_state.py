@@ -8,7 +8,7 @@ class GameState:
     next_player: str    -- player about to move, unless game is over
                            in which case it is the opponent of the player
                            who just moved
-    over: bool          -- flag indicating whether game is over 
+    over: bool          -- flag indicating whether game is over
     instructions: str   -- description of what actions to take at each turn
     WIN: float          -- class constant indicating next player has won
     LOSE: float         -- class constant indicating next player has lost

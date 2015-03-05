@@ -16,7 +16,7 @@ class GameView:
             p = 'p2'
         else:
             p = 'p1'
-        self.state = state(p, interactive=True)
+        self.state = state(p, interactive=True, n=3)
         self.strategy = strategy(interactive=True)
 
     def play(self):
@@ -47,7 +47,7 @@ class GameView:
 
         if self.state.winner('p2'):
             # p2, the computer, wins
-            print('Beat ya!')
+            print('You lost -- Try next time')
         elif self.state.winner('p1'):
             # p1, the human challenger, wins
             print('Congrats -- you won!!')
@@ -56,18 +56,11 @@ class GameView:
 
 
 if __name__ == '__main__':
-    from subtract_square_state import SubtractSquareState
-    from tippy_game_state import TippyGameState
-    game_state = ({'s': SubtractSquareState, 't': TippyGameState})
-
+    from tic_tac_toe_game_state import TTTGameState
     from strategy_random import StrategyRandom
     from strategy_minimax import StrategyMinimax
     strategy = ({'r': StrategyRandom, 'm': StrategyMinimax})
-
-    g = ''
-    while g not in game_state.keys():
-        g = input('s to play Subtract Square, t to play Tippy: ')
     s = ''
     while s not in strategy.keys():
         s = input('r for random strategy for computer, m for minimax: ')
-    GameView(game_state[g], strategy[s]).play()
+    GameView(TTTGameState, strategy[s]).play()
