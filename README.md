@@ -18,8 +18,10 @@ sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/*.py /usr/local/bin
 **enter password**
 ```
 
-Then your ready to play awesome Tic-Tac-Toe!
-
+Then your ready to play awesome Tic-Tac-Toe! Just
+``` html
+tictactoe.py
+```
 ![Image of game](https://raw.githubusercontent.com/sooham/QuickTicTacToe/master/img/img1.tiff)
 
 #### Thank you
