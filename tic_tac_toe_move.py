@@ -1,35 +1,43 @@
 """
 NAME
-    tippy_move
+    tic_tac_toe_move
 
 DESCRIPTION
     This module contains the function for the move class data structure
-    used in TippyGameState called TippyMove. TippyMove is basically the
+    used in TTTGameState called TTTMove. TTTMove is basically the
     object representation of a move done by the player.
 
 
 CLASSES
+    move
     move.Move
-        TippyMove
+        TTTMove
 """
 
-from move import Move
 
+class Move:
 
-class TippyMove(Move):
+    ''' A move in a two-player, sequential move,
+    zero-sum, perfect-information game.
     '''
-    A class that represents a move on the tippy board
+    
+    # definition complete
 
-    position: (int, int) -- the coordinates on a tippy board the move affects.
+
+class TTTMove(Move):
+    '''
+    A class that represents a move on the tic tac toe board
+
+    position: (int, int) -- the coordinates on a tic tac toe board the move affects.
     '''
 
     def __init__(self, coordinates):
-        ''' (TippyMove, tuple of (int, int)) -> NoneType
+        ''' (TTTMove, tuple of (int, int)) -> NoneType
 
-        Initialises the TippyMove instance (self) to act on the coordinates
+        Initialises the TTTMove instance (self) to act on the coordinates
         (coordinates)
 
-        >>> move = TippyMove((1,2))
+        >>> move = TTTMove((1,2))
         >>> move.position
         (1, 2)
         '''
@@ -39,12 +47,12 @@ class TippyMove(Move):
     def __eq__(self, other):
         ''' (self, object) -> bool
 
-        Return True if and only if other is an instance of the class TippyMove
+        Return True if and only if other is an instance of the class TTTMove
         and other has the same position instance variable.
 
-        >>> move1 = TippyMove((1, 2))
-        >>> move2 = TippyMove((3, 4))
-        >>> move3 = TippyMove((3, 4))
+        >>> move1 = TTTMove((1, 2))
+        >>> move2 = TTTMove((3, 4))
+        >>> move3 = TTTMove((3, 4))
         >>> move2 is move3
         False
         >>> move2 == move3
@@ -53,14 +61,14 @@ class TippyMove(Move):
         False
         '''
 
-        return isinstance(other, TippyMove) and self.position == other.position
+        return isinstance(other, TTTMove) and self.position == other.position
 
     def __str__(self):
         ''' (self) -> str
 
         Return a human readable string representation of (self)
 
-        >>> move1 = TippyMove((100, 0))
+        >>> move1 = TTTMove((100, 0))
         >>> str(move1)
         '(100, 0)'
         '''
@@ -72,12 +80,12 @@ class TippyMove(Move):
 
         Return the python interpretable string representation of (self)
 
-        >>> move1 = TippyMove((1, 12))
+        >>> move1 = TTTMove((1, 12))
         >>> repr(move1)
-        'TippyMove((1, 12))'
+        'TTTMove((1, 12))'
         >>> move2 = eval(repr(move1))
         >>> move1 == move2
         True
         '''
 
-        return 'TippyMove({})'.format(self.position)
+        return 'TTTMove({})'.format(self.position)

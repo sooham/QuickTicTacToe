@@ -89,11 +89,3 @@ class GameState:
             return GameState.LOSE
         else:
             return GameState.DRAW
-
-    def rough_outcome(self):
-        '''(GameState) -> float
-
-        Return estimate of outcome based only on current state. Value
-        is in interval [LOSE, WIN]
-        '''
-        raise NotImplementedError('Method must be implemented in a subclass')
