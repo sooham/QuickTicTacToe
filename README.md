@@ -21,3 +21,7 @@ sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/*.py /usr/local/bin
 Then your ready to play awesome Tic-Tac-Toe!
 
 ![Image of game](https://raw.githubusercontent.com/sooham/QuickTicTacToe/master/img/img1.tiff)
+
+#### Thank you
+Thank you to my CSC148 course designers for providing me instporation
+Thank you to [Juan Camilo Osorio](https://github.com/jcoc611) for working with me on earlier iterations of this project
