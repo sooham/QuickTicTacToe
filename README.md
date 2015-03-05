@@ -1,3 +1,21 @@
-A work in progress.
-Enable a user to play the game of Tic Tac Toe
-from the command line
+##Quick Tic-Tac-Toe
+
+Ever gotten _bored_, just sitting there, looking at your command line?
+is your internet **not working**?
+
+Well here is **Quick Tic-Tac-Toe** just for you!
+
+###Installation
+_Note: Only Unix systems with preinstalled python2 can play from any directory_
+####Unix:
+``` html
+git clone https://github.com/sooham/QuickTicTacToe
+cd QuickTicTacToe
+chmod -x tictactoe.py
+sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/*.py /usr/local/bin
+**enter password**
+```
+
+Then your ready to play awesome Tic-Tac-Toe!
+
+![Image of game]()
