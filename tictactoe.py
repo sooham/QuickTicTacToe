@@ -1,7 +1,8 @@
-#!/usr/bin/env python  
-# ^
+#!Library/Frameworks/Python.framework/Versions/3.4/bin/python3
 
 import sys
+
+
 class GameView:
     '''
     A game view for a two-player, sequential move, zero-sum,
@@ -28,35 +29,35 @@ class GameView:
 
         Play a game.
         '''
-        print self.state.instructions
-        print self.state
-        print '\n'
+        print(self.state.instructions)
+        print(self.state)
+        print()
         while self.state.possible_next_moves():
             if self.state.next_player == 'p1':
                 m = self.state.get_move()
                 while m not in self.state.possible_next_moves():
                     # The move was illegal.
-                    print 'Illegal move: {}\nPlease try again.\n'.format(m)
-                    print self.state.instructions
-                    print self.state
+                    print('Illegal move: {}\nPlease try again.\n'.format(m))
+                    print(self.state.instructions)
+                    print(self.state)
                     m = self.state.get_move()
-                print 'You choose: {}'.format(m)
+                print('You choose: {}'.format(m))
             else:
                 # The computer makes a move.
                 m = self.strategy.suggest_move(self.state)
-                print 'The computer chooses: {}'.format(m)
+                print('The computer chooses: {}'.format(m))
             self.state = self.state.apply_move(m)
-            print 'New game state: ', str(self.state)
-            print '\n'
+            print('New game state: ', str(self.state))
+            print()
 
         if self.state.winner('p2'):
             # p2, the computer, wins
-            print 'You lost -- Try next time'
+            print('You lost -- Try next time')
         elif self.state.winner('p1'):
             # p1, the human challenger, wins
-            print 'Congrats -- you won!!'
+            print('Congrats -- you won!!')
         else:
-            print 'We tied...'
+            print('We tied...')
 
 if __name__ == '__main__':
     from tic_tac_toe_game_state import TTTGameState
