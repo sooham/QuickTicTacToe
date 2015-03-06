@@ -1,4 +1,4 @@
-#!Library/Frameworks/Python.framework/Versions/3.4/bin/python3
+#!/usr/bin/env python3
 
 import sys
 

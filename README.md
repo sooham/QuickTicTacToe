@@ -13,7 +13,7 @@ _Note: Only Unix systems with preinstalled python2 can play from any directory_
 ``` html
 git clone https://github.com/sooham/QuickTicTacToe
 cd QuickTicTacToe
-chmod -x tictactoe.py
+chmod +x tictactoe.py
 sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/*.py /usr/local/bin
 **enter password**
 ```
