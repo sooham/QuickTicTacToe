@@ -12,9 +12,9 @@ _Note: Only Unix systems with can play from any directory_
 ####Unix:
 ``` html
 git clone https://github.com/sooham/QuickTicTacToe
-cd QuickTicTacToe
+cd QuickTicTacToe/assets/
 chmod +x tictactoe.py
-sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/*.py /usr/local/bin
+sudo cp ~/Path/to/cloned/repo/QuickTicTacToe/assets/*.py /usr/local/bin
 **enter password**
 ```
 Then your ready to play awesome Tic-Tac-Toe! Just
