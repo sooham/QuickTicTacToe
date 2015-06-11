@@ -10,6 +10,7 @@ class Strategy:
 
         Create new Strategy (self), prompt user if interactive.
         '''
+        pass
 
     def suggest_move(self, state):
         '''(Strategy, GameState) -> Move

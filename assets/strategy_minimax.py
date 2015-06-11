@@ -74,7 +74,7 @@ class StrategyMinimax(Strategy):
         return 'Minimax Strategy Class'
 
     def suggest_move(self, game_state, root=True):
-        r''' (StrategyMinimax, GameState, bool, ) -> Move
+        r''' (StrategyMinimax, GameState, bool) -> Move
 
         (self) return a move that lets game_state.next_player most likely to
         win current game_state.(root) parameter will return a move if set
