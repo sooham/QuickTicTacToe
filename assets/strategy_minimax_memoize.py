@@ -50,50 +50,11 @@ class StrategyMinimaxMemoize(Strategy):
         Strategy.__init__(self, interactive)
         self.memo = {}
 
-    def __eq__(self, other):
-        ''' (StrategyMinimaxMemoize, object) -> bool
-
-        Return True iff (other) is of the same instance as (self).
-
-        >>> strategy = StrategyMinimaxMemoize()
-        >>> better_strategy = StrategyMinimaxMemoize()
-        >>> better_strategy == strategy
-        True
-        >>> better_strategy == 1.0
-        False
-        '''
-
-        return isinstance(other, StrategyMinimaxMemoize)
-
-    def __repr__(self):
-        ''' (StrategyMinimaxMemoize) -> str
-
-        Return a python interpretable string representing (self).
-
-        >>> repr(StrategyMinimaxMemoize())
-        'StrategyMinimaxMemoize()'
-        '''
-
-        return 'StrategyMinimaxMemoize()'
-
-    def __str__(self):
-        ''' (StrategyMinimaxMemoize) -> str
-
-        Return a human interpretable string representing (self).
-
-        >>> str(StrategyMinimaxMemoize())
-        'A Memoized Minimax Strategy Class'
-        '''
-
-        return 'A Memoized Minimax Strategy Class'
-
     def suggest_move(self, game_state, root=True):
         r''' (StrategyMinimaxMemoize, GameState, bool) -> Move
 
-        (self) return a move that allows game_state.next_player to choose
-        the most beneficial move. The (root) parameter will return a move
-        if True, or the numerical score for the game {-1, 0, 1} if set as
-        False.
+        The instance return a Move with maximum chance of game_state.next_player
+        to win game_state. Do not touch root parameter.
 
         Overrides Strategy.suggest_move
 

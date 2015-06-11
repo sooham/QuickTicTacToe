@@ -16,15 +16,14 @@ class GameView:
             p = 'p2'
         else:
             p = 'p1'
-        self.state = state(p, interactive=True)
-        self.strategy = strategy(interactive=True)
+        self.state = state(p)
+        self.strategy = strategy()
 
     def play(self):
         ''' (GameView) -> NoneType
 
         Play a game.
         '''
-        print(self.state.instructions)
         print(self.state)
         print()
         while self.state.possible_next_moves():

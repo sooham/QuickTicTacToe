@@ -1,14 +1,13 @@
 class Strategy:
     '''Interface to suggest moves for a GameState.
 
-    Must be subclassed to a concrete strategy.  Our intention is
-    to provide a uniform interface for functions that suggest moves.
+    Must be subclassed to a concrete strategy.
     '''
 
-    def __init__(self, interactive=False):
+    def __init__(self):
         '''(Strategy, bool) -> NoneType
 
-        Create new Strategy (self), prompt user if interactive.
+        Create new Strategy (self).
         '''
         pass
 
@@ -17,4 +16,4 @@ class Strategy:
 
         Suggest a next move for state.
         '''
-        raise NotImplementedError('Must be implemented in subclass')
+        raise NotImplementedError('Implement in a subclass')

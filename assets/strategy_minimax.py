@@ -5,7 +5,7 @@ NAME
 DESCRIPTION
     This module contains the implementation of the minimax strategy
     used by the StrategyMinimax class. Minimax is a strategy crucial
-    to make a strong AI.
+    to make a gameplaying AI.
 
 FUNCTIONS
     minimax
@@ -21,64 +21,21 @@ from strategy import Strategy
 
 class StrategyMinimax(Strategy):
     '''
-    The strong strategy min and max.
-
-    Uses the state of a game to predict the best possible strategy
-    by calculating all autcomes on each move.
-
-    Inherits Strategy.
+    A generic Minimax algorithm with alpha-beta pruning.
 
     Methods:
         - suggest_move: return a move that leads to the best
             predicted outcome.
-
     '''
 
     # No need for __init__ as this class has no instance variables
 
-    def __eq__(self, other):
-        ''' (StrategyMinimax, object) -> bool
-
-        Return True iff (other) is of the same instance as (self)
-
-        >>> strategy = StrategyMinimax()
-        >>> better_strategy = StrategyMinimax()
-        >>> better_strategy == strategy
-        True
-        >>> better_strategy == 1.0
-        False
-        '''
-
-        return isinstance(other, StrategyMinimax)
-
-    def __repr__(self):
-        ''' (StrategyMinimax) -> str
-
-        Return a python interpretable string representing (self).
-
-        >>> repr(StrategyMinimax())
-        'StrategyMinimax()'
-        '''
-
-        return 'StrategyMinimax()'
-
-    def __str__(self):
-        ''' (StrategyMinimax) -> str
-
-        Return a human interpretable string representing (self).
-
-        >>> str(StrategyMinimax())
-        'Minimax Strategy Class'
-        '''
-
-        return 'Minimax Strategy Class'
-
     def suggest_move(self, game_state, root=True):
         r''' (StrategyMinimax, GameState, bool) -> Move
 
-        (self) return a move that lets game_state.next_player most likely to
-        win current game_state.(root) parameter will return a move if set
-        true or the bool represntaion of the best move if False.
+        Instance return Move with maximum chance for game_state.next_player to
+        win current game_state. root parameter is used for recursion to detect
+        return case - do not touch.
 
         Overrides Strategy.suggest_move
 

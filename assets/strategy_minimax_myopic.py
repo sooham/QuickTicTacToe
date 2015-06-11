@@ -52,47 +52,6 @@ class StrategyMinimaxMyopic(Strategy):
         Strategy.__init__(self, interactive)
         self.max_depth = max_depth
 
-    def __eq__(self, other):
-        ''' (StrategyMinimaxMyopic, object) -> bool
-
-        Return True iff (other) is of the same instance as (self) and both
-        (self) and (other) have the same max_depth.
-
-        >>> strategy = StrategyMinimaxMyopic(False, 5)
-        >>> better_strategy = StrategyMinimaxMyopic(False, 10)
-        >>> strategy == strategy
-        True
-        >>> better_strategy == strategy
-        False
-        >>> better_strategy == 1.0
-        False
-        '''
-
-        return isinstance(other, StrategyMinimaxMyopic) and (
-            self.max_depth == other.max_depth)
-
-    def __repr__(self):
-        ''' (StrategyMinimaxMyopic) -> str
-
-        Return a python interpretable string representing (self).
-
-        >>> repr(StrategyMinimaxMyopic())
-        'StrategyMinimaxMyopic(4)'
-        '''
-
-        return 'StrategyMinimaxMyopic({})'.format(self.max_depth)
-
-    def __str__(self):
-        ''' (StrategyMinimaxMyopic) -> str
-
-        Return a human interpretable string representing (self).
-
-        >>> str(StrategyMinimaxMyopic())
-        'Myopic Minimax Strategy Class'
-        '''
-
-        return 'Myopic Minimax Strategy Class'
-
     def suggest_move(self, game_state, depth=0):
         r''' (StrategyMinimaxMyopic, GameState, int) -> Move
 
