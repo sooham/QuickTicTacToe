@@ -49,28 +49,35 @@ class GameViewTTT:
 
         Make all game logical moves after user button press.
         '''
-        print("You pressed", x, y)
-        print("Currently", self.state.player)
-        if self.state.possible_next_moves():
-            if self.state.player == 'p1':
-                m = MoveTTT((x, y))
-                if m not in self.state.possible_next_moves():
-                    # The move was illegal.
-                    self.client.feedback_label["text"] = "Illegal move"
-                    return
-                # add move to the game state and update client
-                self.state = self.state.apply_move(m)
-                self.client.button_reference[(x, y)]["text"] = self.state.board[(x, y)]
+        m = MoveTTT((x, y))
 
-            #The computer makes a move.
-            print(self.state.TTT_created())
-            m = self.strategy.suggest_move(self.state)
-            print(m)
-            print("Computer chose", m.position)
-            self.state = self.state.apply_move(m)
-            print("Currently", self.state.player)
-            self.client.button_reference[m.position]["text"] = self.state.board[m.position]
-        else:
+        if m not in self.state.possible_next_moves():
+            # The move was illegal.
+            self.client.feedback_label["text"] = "Illegal move"
+            return
+
+        # add move to the game state and update client
+        self.state = self.state.apply_move(m)
+        self.client.button_reference[(x, y)]["text"] = self.state.board[(x, y)]
+
+        if self.state.possible_next_moves() == []:
+            if self.state.winner('p2'):
+                # p2, the computer, wins
+                self.client.feedback_label["text"] = "You lost."
+            elif self.state.winner('p1'):
+                # p1, the human challenger, wins
+                self.client.feedback_label["text"] = "You Won!"
+            else:
+                self.client.feedback_label["text"] = "You tied..."
+            return
+
+        # The computer makes a move.
+        m = self.strategy.suggest_move(self.state)
+
+        self.state = self.state.apply_move(m)
+        self.client.button_reference[m.position]["text"] = self.state.board[m.position]
+
+        if self.state.possible_next_moves() == []:
             if self.state.winner('p2'):
                 # p2, the computer, wins
                 self.client.feedback_label["text"] = "You lost."
@@ -84,6 +91,5 @@ if __name__ == '__main__':
     from MoveTTT import MoveTTT
     from GameStateTTT import GameStateTTT
     from StrategyMinimax import StrategyMinimax
-    from StrategyMinimaxMemoize import StrategyMinimaxMemoize
 
-    TickTacToe = GameViewTTT(TTTClient, GameStateTTT, StrategyMinimaxMemoize)
+    TickTacToe = GameViewTTT(TTTClient, GameStateTTT, StrategyMinimax)

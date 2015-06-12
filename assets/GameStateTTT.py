@@ -104,37 +104,48 @@ class GameStateTTT(GameState):
 
         # overlay the magic square constants for each player, if the sum
         # of the positions is 15 or 30 then True
-        if len(self.board) < 5:
+        if len(self.board) < 3:
             return False
         # check horizontals and verticals
-        for row in range(2):
+        for row in range(3):
             row_sum = 0
-            for col in range(2):
+            for col in range(3):
                 if (col, row) not in self.board:
                     break
                 const = 2 if self.board[(col, row)] == CIRCLE else 1
                 row_sum += GameStateTTT.MAGICSQUARE[(col, row)] * const
-            if row_sum == 15 or row_sum == 30:
+            if row_sum in [15, 30]:
                 return True
 
-        for col in range(2):
+        for col in range(3):
             col_sum = 0
-            for row in range(2):
+            for row in range(3):
                 if (col, row) not in self.board:
                     break
                 const = 2 if self.board[(col, row)] == CIRCLE else 1
                 col_sum += GameStateTTT.MAGICSQUARE[(col, row)] * const
-            if col_sum == 15 or col_sum == 30:
+            if col_sum in [15, 30]:
                 return True
 
         # check diagonal and anti-diagonal
         diag_sum = 0
-        anti_diag_sum = 0
-        for num in range(2):
+        for num in range(3):
+            if (num, num) not in self.board:
+                break
+            const = 2 if self.board[(num, num)] == CIRCLE else 1
             diag_sum += GameStateTTT.MAGICSQUARE[(num, num)] * const
-            anti_diag_sum += GameStateTTT.MAGICSQUARE[(num, 2 - num)] * const
 
-        if 15 in [diag_sum, anti_diag_sum] or 30 in [diag_sum, anti_diag_sum]:
+        if diag_sum in [15, 30]:
+            return True
+
+        anti_diag_sum = 0
+        for num in range(3):
+            if (num, 2 - num) not in self.board:
+                break
+            const = 2 if self.board[(num, 2 - num)] == CIRCLE else 1
+            anti_diag_sum += GameStateTTT.MAGICSQUARE[(num, num)] * const
+
+        if anti_diag_sum in [15, 30]:
             return True
 
         return False
