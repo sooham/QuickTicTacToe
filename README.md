@@ -1,8 +1,11 @@
 #Quick Tic-Tac-Toe
 
-A graphical Tic-Tac-Toe client for your shell.
+A graphical Tic-Tac-Toe client activated from the shell.
+Uses Tkinter and Minimax artificial algorithm.
 
-![An example image](img.tiff)
+<p align="center">
+<img src="img.tiff"/>
+</p>
 
 ### Dependencies
 * Python 3
