@@ -16,7 +16,7 @@ CLASSES
 """
 
 import random
-from strategy import Strategy
+from Strategy import Strategy
 
 
 class StrategyMinimaxMyopic(Strategy):

@@ -1,4 +1,4 @@
-from Game_state import GameState
+from GameState import GameState
 from MoveTTT import MoveTTT
 
 CIRCLE = "\u25EF"
