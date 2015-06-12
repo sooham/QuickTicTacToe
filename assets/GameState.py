@@ -43,7 +43,7 @@ class GameState:
         >>> gs.opponent()
         p2
         '''
-        return 'p2' if self.player == 'p1' else 'p2'
+        return 'p2' if self.player == 'p1' else 'p1'
 
     def outcome(self):
         ''' (GameState) -> float

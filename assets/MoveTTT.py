@@ -38,4 +38,4 @@ class MoveTTT(Move):
         False
         '''
 
-        return isinstance(other, TippyMove) and self.position == other.position
+        return isinstance(other, MoveTTT) and self.position == other.position

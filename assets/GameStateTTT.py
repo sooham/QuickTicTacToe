@@ -50,7 +50,7 @@ class GameStateTTT(GameState):
         # The board is a dictionary mapping coordinate tuples to the
         # value in {CROSS, DOT}. This saves space.
         self.board = board if board else dict()
-        GameState.__init__(p)
+        GameState.__init__(self, p)
 
     def apply_move(self, move):
         r''' (GameStateTTT, MoveTTT) -> GameStateTTT
@@ -68,7 +68,6 @@ class GameStateTTT(GameState):
         >>> gs2.player
         "p2"
         '''
-
         if move in self.possible_next_moves():
             new_board = dict(self.board)  # prevents aliasing
             new_board[move.position] = (
@@ -90,7 +89,7 @@ class GameStateTTT(GameState):
             return []
 
         available_pos = {
-            (x, y) for y in range(2) for x in range(2)
+            (x, y) for y in range(3) for x in range(3)
         }
         # use sets to get the empty positions
         empty_pos = available_pos.difference(self.board)
@@ -113,7 +112,7 @@ class GameStateTTT(GameState):
             for col in range(2):
                 if (col, row) not in self.board:
                     break
-                const = 2 if self.board[(col, row) == CIRCLE] else 1
+                const = 2 if self.board[(col, row)] == CIRCLE else 1
                 row_sum += GameStateTTT.MAGICSQUARE[(col, row)] * const
             if row_sum == 15 or row_sum == 30:
                 return True
@@ -123,7 +122,7 @@ class GameStateTTT(GameState):
             for row in range(2):
                 if (col, row) not in self.board:
                     break
-                const = 2 if self.board[(col, row) == CIRCLE] else 1
+                const = 2 if self.board[(col, row)] == CIRCLE else 1
                 col_sum += GameStateTTT.MAGICSQUARE[(col, row)] * const
             if col_sum == 15 or col_sum == 30:
                 return True
@@ -133,7 +132,7 @@ class GameStateTTT(GameState):
         anti_diag_sum = 0
         for num in range(2):
             diag_sum += GameStateTTT.MAGICSQUARE[(num, num)] * const
-            anti_diag_sum += GameState.MAGICSQUARE[(num, 2 - num)] * const
+            anti_diag_sum += GameStateTTT.MAGICSQUARE[(num, 2 - num)] * const
 
         if 15 in [diag_sum, anti_diag_sum] or 30 in [diag_sum, anti_diag_sum]:
             return True
