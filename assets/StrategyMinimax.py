@@ -5,7 +5,7 @@ NAME
 DESCRIPTION
     This module contains the implementation of the minimax strategy
     used by the StrategyMinimax class. Minimax is a strategy crucial
-    to make a gameplaying AI.
+    to make a game AI.
 
 FUNCTIONS
     minimax

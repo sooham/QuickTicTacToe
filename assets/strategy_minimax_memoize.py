@@ -36,7 +36,7 @@ class StrategyMinimaxMemoize(Strategy):
             predicted outcome.
     '''
 
-    def __init__(self, interactive=False):
+    def __init__(self):
         ''' (StrategyMinimaxMemoize, bool) -> NoneType
         Initialize new instance of StrategyMinimaxMemoize called (self) with
         interactive capabilities.
@@ -47,7 +47,7 @@ class StrategyMinimaxMemoize(Strategy):
         '''
 
         # Extend Strategy
-        Strategy.__init__(self, interactive)
+        Strategy.__init__(self)
         self.memo = {}
 
     def suggest_move(self, game_state, root=True):

@@ -1,28 +1,25 @@
-class GameView:
+class GameViewTTT:
     '''
     A game view for a two-player, sequential move, zero-sum,
     perfect-information game.
     '''
 
     def __init__(self, state, strategy):
-        '''(GameView, GameState.__class__,
+        '''(TTTGameView, GameState.__class__,
             Strategy.__class__) -> NoneType
 
-        Create GameView self for game described by state, where
-        computer uses given strategy.
+        Create TTTGameView self for game with state, where
+        computer uses strategy.
         '''
-        player = input('Type c if you wish the computer to play first ')
-        if player == 'c':
-            p = 'p2'
-        else:
-            p = 'p1'
+        # human player starts
+        p = 'p1'
         self.state = state(p)
         self.strategy = strategy()
 
     def play(self):
         ''' (GameView) -> NoneType
 
-        Play a game.
+        Start the TicTacToe Game
         '''
         print(self.state)
         print()
@@ -53,12 +50,15 @@ class GameView:
         else:
             print('We tied...')
 
+        def get_move(self):
+            # get the move from one of the buttons on the interface
+
 
 if __name__ == '__main__':
     # imports
     # GAME_STATES
     from subtract_square_state import SubtractSquareState
-    from tippy_game_state import TippyGameState
+    from tippy_game_state import TippyGenericGS
 
     # STRATIGIES
     from strategy_random import StrategyRandom
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     from strategy_minimax_prune import StrategyMinimaxPrune
     from strategy_minimax_myopic import StrategyMinimaxMyopic
 
-    game_state = ({'s': SubtractSquareState, 't': TippyGameState})
+    game_state = ({'s': SubtractSquareState, 't': TippyGenericGS})
     strategy = ({'r': StrategyRandom,
                  'm': StrategyMinimax,
                  'memo': StrategyMinimaxMemoize,
@@ -85,4 +85,4 @@ memo for memoized minimax,
 myopic for myopic minimax,
 prune for pruned minimax: ''')
 
-    GameView(game_state[g], strategy[s]).play()
+    TTTTTTGameView(game_state[g], strategy[s]).play()
