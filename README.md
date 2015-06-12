@@ -2,6 +2,8 @@
 
 A graphical Tic-Tac-Toe client for your shell.
 
+![An example image](img.tiff)
+
 ### Dependencies
 * Python 3
 
