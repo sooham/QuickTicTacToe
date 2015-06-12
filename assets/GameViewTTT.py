@@ -1,3 +1,25 @@
+import tkinter
+
+
+class TTTClient:
+
+    def __init__(self):
+        # window settings
+        self.window = tkinter.Tk()
+        self.window.title("TickTacToe")
+
+        # Widget instantiations
+        self.button_reference = {}
+        for x in range(3):
+            for y in range(3):
+                self.button_reference[(x, y)] = tkinter.Button(self.window, text="", width=3, height=1)
+                self.button_reference[(x, y)].grid(row=y, column=x)
+
+        self.feedback_label = tkinter.Label(self.window, text="Choose a move", width=10, height=1, bg="white smoke")
+        self.feedback_label.grid(row=3, columnspan=3, sticky=tkinter.E+tkinter.W)
+        self.window.mainloop()
+
+
 class GameViewTTT:
     '''
     A game view for a two-player, sequential move, zero-sum,
