@@ -3,9 +3,7 @@
 A graphical Tic-Tac-Toe client activated from the shell.
 Uses Minimax artificial intelligence algorithm to replicate a human player.
 
-<p align="center">
-<img src="./img.tiff"/>
-</p>
+![an image of the program](./image.tiff "Logo Title Text 1")
 
 ### Dependencies
 * Python 3
