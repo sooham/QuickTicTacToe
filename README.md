@@ -4,7 +4,7 @@ A graphical Tic-Tac-Toe client activated from the shell.
 Uses Minimax artificial intelligence algorithm to replicate a human player.
 
 <p align="center">
-<img src="img.tiff"/>
+<img src="./img.tiff"/>
 </p>
 
 ### Dependencies
