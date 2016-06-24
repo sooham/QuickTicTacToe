@@ -4,7 +4,7 @@ A graphical Tic-Tac-Toe client activated from the shell.
 Uses Tkinter and Minimax artificial algorithm.
 
 <p align="center">
-<img src="img.tiff"/>
+<img src="img.png"/>
 </p>
 
 ### Dependencies
